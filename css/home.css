@@ -139,6 +139,14 @@ li a{
     font-weight: 500;
 }
 
+section {
+    padding-bottom: 2rem;
+}
+
+section .banner {
+    width: 100%;
+}
+
 /* add product */
 
 .add-product form{
@@ -274,4 +282,58 @@ li a{
 
 .box-container span{
     color: red;
+}
+
+/* End of season */
+.eos-title {
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 2rem;
+    font-weight: 600;
+}
+
+.eos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 25rem);
+    justify-content: center;
+    gap: 5rem;
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    text-align: center;
+}
+
+.eos-product {
+    width: 30rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.eos-product img {
+    width: 30rem;
+}
+
+/* Footer */
+
+.footer {
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    color: white;
+    background-color: #333;
+    
+}   
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem;
+}
+
+.footer-item {
+    padding-right: 1rem;
+}
+
+.footer-subitem {
+    padding-bottom: 1rem;
+    font-size: 1rem;
 }

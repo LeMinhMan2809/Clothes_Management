@@ -5,21 +5,26 @@ session_start();
 
 if (isset($_POST['login'])) {
 
-    $name = $_POST['name'];
+    $username = $_POST['username'];
     $pass = $_POST['password'];
     // $email = $_POST['email'];
-    $sql = "SELECT * FROM users WHERE name = '$name' AND password = '$pass'";
+    $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$pass'";
 
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
 
-        $_SESSION['name']= $row['name'];
+        $_SESSION['username']= $row['username'];
         $_SESSION['email'] = $row['email'];
 
-        header("Location:admin_page.php");
-    }else {
+        if ($row['usertype'] == 'user'){
+            header("Location:user_page.php");
+        }
+        else if ($row['usertype'] == 'admin') {
+            header("Location:admin_page.php");
+        }
+        } else {
         $message[] = "Wrong username and password";
     }
 }
@@ -41,7 +46,6 @@ if (isset($_POST['login'])) {
 
     <!-- Font awesome (icon) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
 </head>
 
 <body>
@@ -67,9 +71,9 @@ if (isset($_POST['login'])) {
         <form action="" method="post">
 
             <div class="text-field">
-                <input type="text" name="name" autofocus required>
+                <input type="text" name="username" autofocus required>
                 <span></span>
-                <label for="name">Enter your name</label>
+                <label for="name">Enter your username</label>
             </div>
 
             <div class="text-field">
@@ -89,5 +93,4 @@ if (isset($_POST['login'])) {
 
 
 </body>
-
 </html>

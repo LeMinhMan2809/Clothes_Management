@@ -77,7 +77,7 @@ if (isset($_POST['add_product'])) {
             </div>
 
             <div class="account-box">
-                <p>Username: <span><?php echo $_SESSION['name']; ?></span></p>
+                <p>Username: <span><?php echo $_SESSION['username']; ?></span></p>
                 <p>Email: <span><?php echo $_SESSION['email']; ?></span></p>
                 <a href="logout.php" class="delete-btn">Log out</a>
             </div>
